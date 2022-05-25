@@ -1,0 +1,2 @@
+# kgomotsocinemas.github.io
+Entertainment
