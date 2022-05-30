@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        KGOMOTSO CINEMAS
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="Home">
+
+
+
+        <div class="topnav">
+
+            <a class="active" href="Index.html">HOME</a>
+            <a href="Movies.html">MOVIES</a>
+            <a href="Upcoming.html">UPCOMING</a>
+            <a href="Latest.html">LATEST</a>
+            <a href="Feedback.html">FEEDBACK</a>
+            <a href="AboutUs.html">ABOUT US</a>
+            <a href="ContactUs.html">CONTACT US</a>
+            <input type="text" placeholder="Search..">
+        </div>
+
+
+
+        <header>
+            <Marquee>
+                <h1>KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |KGOMOTSO CINEMAS welcomes you| |</h1>
+            </Marquee>
+        </header>
+        <div class="container">
+
+            <!-- Full-width images with number text -->
+            <div class="mySlides">
+                <div class="numbertext">1 / 6</div>
+                <img src="skyscrapper.jpg" style="width: 0px">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 6</div>
+                <img src="nowayhome.jpg" style="width: 0px">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 6</div>
+                <img src="wonder.jpg" style="width:0px">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="virus.jpg" style="width:0px">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="austronut.jpg" style="width:0px">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="rednotice.jpg" style="width:0px">
+            </div>
+
+
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Image text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <!-- Thumbnail images -->
+            <div class="row">
+                <div class="column">
+
+                    <img class="demo cursor" src="skyscrapper.jpg" style="width:100%" onclick="currentSlide(1)" alt="SKY SCRAPPER <h3>now showing in 2D</h3> ">
+                    <button><i class="fa fa-play"></i>watch trailer</button>
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="nowayhome.jpg" style="width:100%" onclick="currentSlide(2)" alt="SPIDER MAN NO WAY HOME <h3>now showing in 2D</h3>">
+                    <button><i class="fa fa-play"></i>watch trailer</button>
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="wonder.jpg" style="width:100%" onclick="currentSlide(3)" alt="WONDER WOMAN <h3>now showing in 2D</h3>">
+                    <button><i class="fa fa-play"></i>watch trailer</button>
+                </div>
+                <div class="column ">
+                    <img class="demo cursor " src="virus.jpg " style="width:100% " onclick="currentSlide(4) " alt="VIRUS OUTBREAK <h3>now showing in cinemas </h3>">
+                    <button><i class="fa fa-play"></i>watch trailer</button>
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="austronut.jpg" style="width:100%" onclick="currentSlide(5)" alt="THE AUSTRONUT <h3>now showing in 3D</h3>">
+                    <button><i class="fa fa-play"></i>watch trailer</button>
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="rednotice.jpg" style="width:100%" onclick="currentSlide(6)" alt="RED NOTICE<h3>now showing in 3D</h3>">
+                    <button><i class="fa-play"></i>watch trailer</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="trailer">
+        <video src="innovid.mp4" controls="true"></video>
+        <span class="close">&times;</span>
+
+    </div>
+    <script>
+        const button = document.querySelector("button");
+        const close = document.querySelector(".close");
+        const trailer = document.querySelector(".trailer");
+        const video = document.querySelector("video");
+
+        button.addEventListener('click', () => {
+            trailer.style.visibility = "visible";
+            trailer.style.opacity = 1;
+
+        });
+        close.addEventListener('click', () => {
+            trailer.style.visibility = "hidden";
+            trailer.style.opacity = 0;
+
+            video.pause();
+            video.currentTime = 0;
+
+        });
+    </script>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+    </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+
+</html>
